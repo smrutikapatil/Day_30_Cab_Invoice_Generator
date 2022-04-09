@@ -70,4 +70,17 @@ public class CabInvoiceGeneratorTest {
         InvoiceSummary expectedInVoice = inVoiceGenerator.inVoiceService(listOfRides);
         Assert.assertEquals(expectedInVoice,summary);
     }
+
+    /**
+     * Test Case 5 : TO get premium rides cost
+     */
+    @Test
+    public void ifSelectedPremiumRides_ShouldReturnPremiumPrices() {
+
+        double distance = 4.0;
+        int time = 10;
+        double totalFare = inVoiceGenerator.calculateFare(distance, time);
+
+        Assert.assertEquals(80.0, totalFare, 0.0);
+    }
 }
