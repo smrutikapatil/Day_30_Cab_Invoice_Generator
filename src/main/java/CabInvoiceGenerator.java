@@ -1,3 +1,5 @@
+import java.util.Hashtable;
+
 public class CabInvoiceGenerator {
 
     private static final int COST_PER_MINUTE = 1;
@@ -22,5 +24,11 @@ public class CabInvoiceGenerator {
         }
         System.out.println(totalAggregateFare);
         return new InvoiceSummary(rides.length,totalAggregateFare);
+    }
+
+    public InvoiceSummary inVoiceService(Hashtable<Integer, Ride[]> listOfRides){
+        Ride[] rides = listOfRides.get(1);
+        InvoiceSummary inVoiceSummary = calculateFare(rides);
+        return inVoiceSummary;
     }
 }
