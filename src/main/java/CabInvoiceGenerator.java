@@ -13,4 +13,14 @@ public class CabInvoiceGenerator {
             return MINIMUM_FARE;
         return totalFare;
     }
+
+    //To calculate fare for multiple rides
+    public double calculateFare(Ride[] rides) {
+        double totalAggregateFare = 0;
+        for (Ride ride :rides) {
+            totalAggregateFare += this.calculateFare(ride.distance,ride.time);
+        }
+        System.out.println(totalAggregateFare);
+        return totalAggregateFare;
+    }
 }
